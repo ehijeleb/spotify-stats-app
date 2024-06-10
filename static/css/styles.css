@@ -1,0 +1,160 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    margin : 15px;
+    padding: 0;
+    background-color: #121212
+}
+
+h1 {
+    text-align: center;
+    padding: 10px;
+    background-color: #242424;
+    color: #1DB954;
+    border-radius: 30px;
+    font-size: 40px;
+    margin-left: 200px;
+    margin-right: 200px;
+
+}      
+
+
+h3 {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    border:#242424;
+}
+
+ul li {
+    margin: 30px ;
+    padding: 10px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    background-color: #242424;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li img {
+    margin-right: 20px;
+}
+
+ul li img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.nav-button {
+    color: #fff;
+    background-color: #242424;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #1A1A1A;
+}
+
+.tracks-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    
+}
+
+.time-range-section {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #242424;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 30%;
+}
+
+.artists-container{
+    font-size: 20px;
+}
+
+.album-container{
+    font-size: 20px;
+}
+
+
+.tracks-ul {
+    display: block;  /* Override grid display */
+}
+
+.tracks-li {
+    display: block;  
+    border-radius: 50px;  
+    text-align: center;
+    border: 1px solid #ccc;  
+}
+
+#login-button {
+    color: #fff;
+    background-color: #242424;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+#login-button:hover{
+    background-color: #1A1A1A;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.searchBar-container {
+    width: 100%; /* Full width */
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add margin to the top or adjust as needed */
+}
+
+#searchBar {
+    width: 20%; /* Adjust width as needed */
+    padding: 12px 20px;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition for focus */
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    background-color: #242424;
+    color: #FFFFFF;
+}
+
+#searchBar:focus {
+    border-color: #FFFFFF;
+}
+
+#searchBar::placeholder {
+    color: #aaa;
+    opacity: 1; /* Ensure full opacity for placeholder text */
+}

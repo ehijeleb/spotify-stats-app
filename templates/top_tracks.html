@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Top Tracks</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="nav-container">
+        <a href="{{ url_for('index') }}" class="nav-button">Home</a>
+        <a href="{{ url_for('top_artists', time_range='short_term') }}" class="nav-button">Top Artists</a>
+        <a href="{{ url_for('top_albums', time_range='short_term') }}" class="nav-button">Top Albums</a>
+    </div>
+    
+    <h1>Your Top Tracks</h1>
+    <div class="searchBar-container"><input type="text" id="searchBar" placeholder="Search for tracks..."></div>
+    <div class="tracks-container">
+        {% for time_range, tracks in top_tracks.items() %}
+        <div class="time-range-section">
+            <h3>
+                {% if time_range == 'short_term' %}
+                    Last 4 Weeks
+                {% elif time_range == 'medium_term' %}
+                    Last 6 Months
+                {% elif time_range == 'long_term' %}
+                    Last Year
+                {% endif %}
+            </h3>
+            <ul class="tracks-ul">
+                {% for track in tracks %}
+                    <li class="tracks-li">{{ loop.index }}. {{ track['name'] }} - {{ track['artists'][0]['name'] }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

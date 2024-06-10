@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Your Top Albums</title>
+    <link rel="stylesheet" type = "text/css" href="{{url_for('static', filename='css/styles.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+</head>
+<body>
+    <div class="nav-container">
+        <a href="{{ url_for('index') }}" class="nav-button">Home</a>
+        <a href="{{ url_for('top_tracks') }}" class="nav-button">Top Tracks</a>
+        <a href="{{ url_for('top_artists', time_range='short_term') }}" class="nav-button">Top Artists</a>
+        <a href="{{ url_for('top_albums', time_range='short_term') }}" class="nav-button">Top Albums (Last 4 Weeks)</a>
+        <a href="{{ url_for('top_albums', time_range='medium_term') }}" class="nav-button">Top Albums (Last 6 Months)</a>
+        <a href="{{ url_for('top_albums', time_range='long_term') }}" class="nav-button">Top Albums (Last Year)</a>
+    </div>
+
+    <h1>Your Top Albums</h1>
+    <h3>
+        {% if time_range == 'short_term' %}
+            Last 4 Weeks
+        {% elif time_range == 'medium_term' %}
+            Last 6 Months
+        {% elif time_range == 'long_term' %}
+            Last Year
+        {% endif %}
+    </h3>
+    <div class="album-container">
+        <ul>
+            {% for album in top_albums %}
+                <li>
+                    <img src="{{ album['images'][0]['url'] if album['images'] else '' }}" alt="{{ album['name'] }}" style="width:150px;height:150px;">
+                    {{ loop.index }}.{{ album['name'] }} by {{ album['artist'] }} ({{ album['count'] }} tracks)
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
